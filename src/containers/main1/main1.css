@@ -1,0 +1,24 @@
+.name {
+    background: -webkit-linear-gradient(white, #38495a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 75px;
+    margin-top: 0
+}
+.name2 {
+    margin-top: -45px
+}
+.name-font {
+    font-family: 'lato', sans-serif
+}
+.stars {
+    animation: animStar 150s linear infinite running;
+}
+@keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  }
