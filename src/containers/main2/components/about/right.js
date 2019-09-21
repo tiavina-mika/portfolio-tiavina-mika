@@ -70,7 +70,7 @@ const Right = () => {
                     <Motion
                         initial={{ marginLeft: -9000 }}
                         animate={{ marginLeft: 0 }}
-                        delay= {2.6}
+                        delay= {2.4}
                         dumping={0}
                         marginTop= {10}
                         textAlign="justify"
@@ -84,7 +84,7 @@ I have experience in all stages of the software development lifecycle. Whether a
                 <Motion
                         initial={{ marginLeft: -6800 }}
                         animate={{ marginLeft: 0 }}
-                        delay= {3}
+                        delay= {2.8}
                         className={classes.buttonContainer}
                     >
                     <a href="#" className={classes.downloadLink}><Typography>telecharger mon CV </Typography><ArrowRightAltIcon className={classes.rightIcon}/></a>

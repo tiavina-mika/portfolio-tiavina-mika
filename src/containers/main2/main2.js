@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import './main2.css';
 import Header from './components/header';
 import About from './components/about';
+import Doing from './components/doing';
 
 
 const useStyles = makeStyles({
@@ -23,6 +24,7 @@ function Main2({onClick}) {
     <div className={classes.root}>
         <Header onClick={onClick} />
         <About />
+        <Doing />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { useTransition, animated } from 'react-spring'
 import Main3 from './containers/main2/main2';
 import Main1 from './containers/main1/main1';
-import './containers/styles.css'
+import './styles.css'
 
 const pages = [
   ({ style, onClick }) => <animated.div style={{ ...style, }}> <Main1 onClick={onClick}/></animated.div>,
