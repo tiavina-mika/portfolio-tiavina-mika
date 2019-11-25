@@ -76,9 +76,7 @@ const Right = () => {
                         textAlign="justify"
                     >
                     <Typography variant="paragraph" className={classes.description}>
-                        I love to code ... I started programming at age 7, and have been doing it ever since. I have been in various software related roles, including embedded software, web development, training and instructional design, software architecture, release management and consulting, in both full and part-time permanent and contract capacities. I have a well-rounded background, with the expertise and experience to deliver.
-
-I have experience in all stages of the software development lifecycle. Whether alone, or on a team, the goal is always the same: To develop high performance, high-availability secure reliable systems. I have experience as team and project lead, work well with customers, am self-motivated with exceptional communication skills (on paper, through keystrokes or just my normal everyday voice).
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   
                     </Typography>
                 </Motion>
                 <Motion

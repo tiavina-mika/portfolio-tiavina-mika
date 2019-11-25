@@ -6,8 +6,8 @@ import Line from './blocks/line';
 import Description from './blocks/description';
 import Main from './about/main';
 
-const string = `If I had to define what my passion is in the larger scheme of things, I would define it to be the fact that software is written by people, for people. So things like “customer service” or “team building” are the things that inspire me and drive me to be the best I can be.`
-
+const string = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+`;
 const useStyles = makeStyles({
     root: {
         // display: 'flex',
