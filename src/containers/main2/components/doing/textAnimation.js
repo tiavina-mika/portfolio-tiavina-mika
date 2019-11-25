@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TextLoop from "react-text-loop";
+import { useSpring, animated } from 'react-spring';
+import { motion } from 'framer-motion';
 
 const useStyles = makeStyles({
     root: {
         position: 'absolute',
         top: '155%',
-        // textJustify: 'center',
+        textJustify: 'center',
         zIndex: 30,
     },
     titleContainer: {
@@ -35,47 +37,18 @@ const useStyles = makeStyles({
 
 const TextAnimation = () => {
     const classes = useStyles();
+    const [active, set] = useState(false);
+
+    useEffect(() => {
+        set(!active)
+    }, [])
+
+    const props = useSpring({ dy: active ? 100: 0})
     return (
     <div className={classes.root}>
-            <TextLoop
-            mask={true}
-            springConfig={{ stiffness: 70, damping: 31 }}
-            delay={8000}
-            >
-                <div className={classes.titleContainer}>
-                    <TextLoop
-                        mask={true}
-                        springConfig={{ stiffness: 70, damping: 31 }}
-                        interval={1500}
-                        className={classes.textLoop}
-                        // adjustingSpeed={400}
-                        >
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>FRONT-END</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>BACK-END</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>FLULLSTACK</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>WEB</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>MOBILE</Typography>
-                    </TextLoop>{" "}
-                    <Typography variant="h1" className={classes.title}>DEVELOPER</Typography>
-                </div>
-                <div className={classes.titleContainer}>
-                    {/* <TextLoop
-                        mask={true}
-                        springConfig={{ stiffness: 70, damping: 31 }}
-                        interval={1500}
-                        className={classes.textLoop}
-                        // adjustingSpeed={400}
-                        > */}
-                            {/* <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>FRONT-END</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>BACK-END</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>FLULLSTACK</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>WEB</Typography>
-                            <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>MOBILE</Typography> */}
-                    {/* </TextLoop> */}
-                    <Typography variant="h1" className={clsx(classes.title, classes.activeTitle)}>MOBILE</Typography> 
-                    <Typography variant="h1" className={classes.title}>DESIGNER</Typography>
-                </div>
-            </TextLoop>
+            <svg width="100%" height="100" >
+                <motion.text x="0" y="80" style={{color: 'green', fontSize: 52}}>Ceci est <motion.tspan dy={20} animate={{ dy: [0, 100]}}>un</motion.tspan> test</motion.text>
+            </svg>
     </div>
 
     )

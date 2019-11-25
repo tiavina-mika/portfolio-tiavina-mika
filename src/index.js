@@ -13,6 +13,7 @@ WebFont.load({
         'Comfortaa:300,400,700', 
         'BebasNeueRegular:300,400,700', 
         'SofiaPro:300,400,700', 
+        'Muli:300,400,700', 
         'sans-serif']
     }
 });

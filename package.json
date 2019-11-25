@@ -7,6 +7,7 @@
     "@material-ui/icons": "^4.4.1",
     "clsx": "^1.0.4",
     "cxs": "^6.2.0",
+    "d3-ease": "^1.0.6",
     "framer-motion": "^1.6.3",
     "react": "^16.9.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",

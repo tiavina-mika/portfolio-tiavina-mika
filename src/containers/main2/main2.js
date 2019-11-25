@@ -18,14 +18,14 @@ const useStyles = makeStyles({
     }
 });
 
-function Main2({onClick}) {
+const Main2 = ({onClick}) => {
     const classes = useStyles();
-  return (
-    <div className={classes.root}>
-        <Header onClick={onClick} />
-        <About />
-        <Doing />
-    </div>
+    return (
+      <div className={classes.root}>
+          <Header onClick={onClick} />
+          <About />
+          {/* <Doing /> */}
+      </div>
   );
 }
 

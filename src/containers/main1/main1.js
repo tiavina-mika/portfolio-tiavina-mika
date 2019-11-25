@@ -1,51 +1,39 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, lighten, darken } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { motion } from "framer-motion";
 import './main1.css';
 import { useSpring, animated } from 'react-spring';
-import Names from './components/names'
+import Names from './components/names';
 
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
+const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 
 const useStyles = makeStyles({
   container: {
-    // backgroundImage: `url(${process.env.PUBLIC_URL}/star-bg.png)`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundColor:' #24292e',
-    // background: `url(${process.env.PUBLIC_URL}/images/planet.png) no-repeat right top`,
-    // backgroundSize: 150,
     backgroundImage: `linear-gradient(#191c20, #24292e 15%)`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'left top',
     height: window.innerHeight,
     overflow: 'hidden'
-    // backgroundPosition: 'center 0, 0 0, 0 '
   },
   planetContainer: {
     display: 'flex',
     justifyContent: 'flex-end'
   },
   planet: {
-    // backgroundImage: `url(${process.env.PUBLIC_URL}/star-bg.png)`,
-    // backgroundPosition: 'center',
     background: `url(${process.env.PUBLIC_URL}/images/planet.png) no-repeat right top`,
     backgroundSize: 550,
-    // backgroundImage: `url(${process.env.PUBLIC_URL}/star-bg.png),linear-gradient(#191c20, #24292e 15%)`,
-    // backgroundRepeat: 'no-repeat',
-    // backgroundPosition: 'left top',
-    // height: window.innerHeight
     height: 400,
     width: 555,
     marginTop: '10%',
-    // animation: '$rotatePlanet 100s linear infinite running'
-
-    // backgroundPosition: 'center 0, 0 0, 0 '
   },
   nameContainer: {
       position: 'absolute',
@@ -53,12 +41,12 @@ const useStyles = makeStyles({
       left: 0,
       right: 0, 
       color: '#FFF',
-      textAlign: 'center',
-      // fontFamily: 'lato',
       fontFamily: ['lato','sans-serif'].join(','),
       fontWeight: 300,
       fontSize: '50px',
       letterSpacing: '10px',
+      display: 'flex',
+      justifyContent: 'center',
       
       marginTop: '-60px',
       paddingLeft: '10px'
@@ -66,7 +54,6 @@ const useStyles = makeStyles({
     name: {
       background: '-webkit-linear-gradient(white, #38495a)',
       backgroundClip: 'text',
-    //   color: 'transparent',
     },
     postContainer: {
       position: 'absolute',
@@ -75,7 +62,6 @@ const useStyles = makeStyles({
       right: 0, 
       color: '#FFF',
       textAlign: 'center',
-      // fontFamily: 'lato',
       fontWeight: 300,
       fontSize: '50px',
       letterSpacing: '10px',
@@ -85,13 +71,6 @@ const useStyles = makeStyles({
     post: {
       fontFamily: ['Montserrat','sans-serif'].join(','),
       fontSize: 40,
-
-      // fontFamily: ['BebasNeueRegular','sans-serif'].join(','),
-      // textTransform: 'uppercase',
-      // textShadow: '#222 3px 3px 3px',
-      // fontSize: 80,
-      // fontWeight: 400,
-
     },
     '@keyframes animStar': {
       from: {transform: 'translateY(0px)'},
@@ -108,32 +87,46 @@ const useStyles = makeStyles({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      marginTop: 60
+      marginTop: 60,
+    },
+    arrow: {
+      borderRadius: '50%',
+      animation: '$container 2s linear infinite running',
+      '&:hover': {
+        cursor: 'pointer'
+      }
     },
     arrowIcon: {
       fontSize: 50,
-      color: '#1dd1aa'
+      animation: '$arrowanimation 2s linear infinite running'
     },
     arrowIcon2: {
-      marginTop: -40
+      marginTop: -40,
     },
     line: {
       height: 7,
       backgroundColor: '#fff',
       width: 100,
-      // margin: 'auto',
       marginTop: 20,
       marginBottom: 85,
       borderRadius: 5
-    }
+    },
+    '@keyframes container': {
+      from: {border: `5px solid ${darken('#1dd1aa', 0.8)}`, boxShadow: '1px 1px 1px transparent, -1px -1px 1px transparent'},
+      to: {border: `5px solid ${lighten('#1dd1aa', 0.6)}`, boxShadow: `1px 1px 3px ${lighten('#1dd1aa', 0.9)}, -1px -1px 3px ${lighten('#1dd1aa', 0.9)}`}
+    },
+    '@keyframes arrowanimation': {
+      from: {color: `${darken('#1dd1aa', 0.8)}`},
+      to: {color: `${lighten('#1dd1aa', 0.6)}`}
+    },
 });
 
-function getRandomIntInclusive(max) {
+const getRandomIntInclusive = max=> {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
-function Main2({onClick}) {
-  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+const Main2 = ({onClick}) => {
+  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }));
 
   
     const classes = useStyles();
@@ -144,23 +137,16 @@ function Main2({onClick}) {
           <animated.div style={{
             background: `url(${process.env.PUBLIC_URL}/images/stars-${n}.png) right top`,
             backgroundSize: 'cover',
-            // backgroundImage: `url(${process.env.PUBLIC_URL}/star-bg.png),linear-gradient(#191c20, #24292e 15%)`,
             backgroundRepeat: 'no-repeat',
-            // backgroundPosition: 'left top',
-            // height: window.innerHeight,
             position: 'relative',
             height: 8,
             width: 8,
             top: getRandomIntInclusive(window.innerHeight),
             left: getRandomIntInclusive(window.innerWidth),
-            // marginTop: '10%'      
           }}
             className={classes.stars} />
         ))}
-        {/* <div className={classes.planetContainer}>
-          <div className={classes.planet}>
-          </div>
-        </div> */}
+
         <div className={classes.planetContainer} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
             <animated.div className={classes.planet} style={{ transform: props.xy.interpolate(trans1) }} />
          </div>
@@ -202,9 +188,10 @@ function Main2({onClick}) {
             }}
             className={classes.arrowContainer}
           >
-          {/* <div className={classes.arrowContainer}> */}
-            <KeyboardArrowDownIcon className={classes.arrowIcon} />
-            <KeyboardArrowDownIcon className={clsx(classes.arrowIcon, classes.arrowIcon2)} />
+              <Box className={classes.arrow} display="flex" flexDirection="column" alignItems="center" px={1}>
+                  <KeyboardArrowDownIcon className={classes.arrowIcon} />
+                  <KeyboardArrowDownIcon className={clsx(classes.arrowIcon, classes.arrowIcon2)} /> 
+              </Box>              
           </motion.div>
         </div>
     </div>

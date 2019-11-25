@@ -54,7 +54,6 @@ const Doing = () => {
             animate={{ marginLeft: 0, opacity: 1 }}
             delay= {3}
         >
-            {/* {string} */}
             <div className={classes.blobContainer}>
                 <Blob
                     size={650}
@@ -71,7 +70,6 @@ const Doing = () => {
                 <TextAnimation /> 
             </div>
 
-            {/* <TextAnimation /> */}
           
         </Motion>
     )
