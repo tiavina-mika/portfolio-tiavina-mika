@@ -38,7 +38,6 @@ const Motion = ({ children, initial, animate, delay, type="spring", stiffness= 2
         : <motion.div
                 style={{...style}}
                 className={clsx(classes.root, className)}
-                className={classes.root}
                 initial={{...initial}}
                 animate={{...animate}}
                 transition={{

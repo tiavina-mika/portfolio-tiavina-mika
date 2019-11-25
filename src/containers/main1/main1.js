@@ -14,12 +14,11 @@ const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 
 const useStyles = makeStyles({
   container: {
-    backgroundPosition: 'center',
+    // backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundColor:' #24292e',
     backgroundImage: `linear-gradient(#191c20, #24292e 15%)`,
-    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'left top',
     height: window.innerHeight,
     overflow: 'hidden'

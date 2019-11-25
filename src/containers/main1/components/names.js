@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import './names.css'
 import { makeStyles, lighten } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';

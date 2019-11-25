@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { useSpring, animated } from "react-spring";
-import { easeBounceOut } from "d3-ease";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -29,8 +28,6 @@ const useStyles = makeStyles({
 const circlePath = `M18 2.0845
 a 15.9155 15.9155 0 0 1 0 31.831
 a 15.9155 15.9155 0 0 1 0 -31.831`;
-
-const svgConfig = { easing: easeBounceOut, duration: 2500 };
 
 const Wheel = ({ title, stroke, otherStroke }) => {
     const classes = useStyles();
@@ -61,7 +58,7 @@ const Loading = ({completed}) => {
 
     useEffect(() => {
       completed !== 100 && set(true)
-    }, [])
+    }, [completed])
 
   const props3 = useSpring({
     stroke: active ? 100 : 0,

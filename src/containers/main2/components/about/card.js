@@ -85,11 +85,11 @@ function Deck() {
   useEffect(() => {
     document.getElementsByTagName('html')[0].classList.remove(classes.body);
     return document.getElementsByTagName('html')[0].classList.remove(classes.body)
-  }, [])
+  }, [classes.body])
   useEffect(() => {
     document.body.classList.add(classes.body);
     return document.body.classList.remove(classes.body)
-  }, [])
+  }, [classes.body])
 
   return props.map(({ x, y, rot, scale }, i) => (
         <div className={classes.root}>

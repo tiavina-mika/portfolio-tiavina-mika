@@ -1,12 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import './main2.css';
 import Header from './components/header';
 import About from './components/about';
-import Doing from './components/doing';
 
 
 const useStyles = makeStyles({

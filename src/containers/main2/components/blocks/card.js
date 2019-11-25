@@ -43,9 +43,8 @@ const useStyles = makeStyles({
                 willChange: 'transform',
                 borderRadius: '10px',
                 boxShadow: '0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3)',
-              
             }
-          }
+        }
     }
 });
 
@@ -76,11 +75,11 @@ const Card = () => {
   useEffect(() => {
     document.getElementsByTagName('html')[0].classList.remove(classes.body);
     return document.getElementsByTagName('html')[0].classList.remove(classes.body);
-  }, [])
+  }, [classes.body])
   useEffect(() => {
     document.body.classList.add(classes.body);
     return document.body.classList.remove(classes.body);
-  }, [])
+  }, [classes.body])
 
   return props.map(({ x, y, rot, scale }, i) => (
         <div className={classes.root}>
