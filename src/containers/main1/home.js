@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { motion } from "framer-motion";
-import './main1.css';
+import './home.css';
 import { useSpring, animated } from 'react-spring';
 import Names from './components/names';
 

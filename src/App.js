@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { useTransition, animated } from 'react-spring'
-import Main2 from './containers/main2/main2';
-import Main1 from './containers/main1/main1';
+import Main2 from './containers/main2/body';
+import Home from './containers/main1/home';
 import Loading from './containers/main1/components/loading';
 
 const pages = [
-  ({ style, onClick }) => <animated.div style={{ ...style, }}> <Main1 onClick={onClick}/></animated.div>,
+  // ({ style, onClick }) => <animated.div style={{ ...style, }}> <Home onClick={onClick}/></animated.div>,
   ({ style, onClick }) => <animated.div style={{ ...style, }}> <Main2  onClick={onClick}/></animated.div>,
 ];
 
@@ -34,10 +34,19 @@ const App = () => {
       leave: { opacity: 0, transform: 'translate3d(0,50%,0)' },
     });
 
+    // return (
+    //       completed !== 100
+    //       ? <Loading completed={completed}/>
+    //       : <div className="simple-trans-main">
+    //           { transitions.map(({ item, props, key }) => {
+    //               const Page = pages[item];
+    //               return <Page key={key} style={props} onClick={onClick}/>
+    //           })}
+    //         </div>
+    // )
+    
     return (
-          completed !== 100
-          ? <Loading completed={completed}/>
-          : <div className="simple-trans-main">
+          <div className="simple-trans-main">
               { transitions.map(({ item, props, key }) => {
                   const Page = pages[item];
                   return <Page key={key} style={props} onClick={onClick}/>

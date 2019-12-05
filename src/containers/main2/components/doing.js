@@ -1,15 +1,8 @@
 import React from 'react';
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Motion from '../../../components/motion';
-import Balloon from './doing/balloon';
 import Blob from './doing/blob';
-import BackgroundBalloon from './doing/background-balloon';
 import TextAnimation from './doing/textAnimation';
-import TextLoop from "react-text-loop";
-
-const string = `If I had to define what my passion is in the larger scheme of things, I would define it to be the fact that software is written by people, for people. So things like “customer service” or “team building” are the things that inspire me and drive me to be the best I can be.`
 
 const useStyles = makeStyles({
     root: {

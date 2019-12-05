@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import './main2.css';
 import Header from './components/header';
 import About from './components/about';
+import Domain from './components/domain-container';
 
 
 const useStyles = makeStyles({
@@ -19,7 +19,8 @@ const Main2 = ({onClick}) => {
     return (
       <div className={classes.root}>
           <Header onClick={onClick} />
-          <About />
+          {/* <About /> */}
+          <Domain />
           {/* <Doing /> */}
       </div>
   );
