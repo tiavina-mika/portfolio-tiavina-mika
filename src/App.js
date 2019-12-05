@@ -1,17 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { useTransition, animated } from 'react-spring'
-import Main2 from './containers/main2/body';
-import Home from './containers/main1/home';
-import Loading from './containers/main1/components/loading';
+import Body from './containers/body';
+import Home from './containers/home';
+import Loading from './components/home/loading';
 
 const pages = [
   // ({ style, onClick }) => <animated.div style={{ ...style, }}> <Home onClick={onClick}/></animated.div>,
-  ({ style, onClick }) => <animated.div style={{ ...style, }}> <Main2  onClick={onClick}/></animated.div>,
+  // ({ style, onClick }) => <animated.div style={{ ...style, }}> <Main2  onClick={onClick}/></animated.div>,
 ];
 
 const App = () => {
     const [index, set] = useState(0);
     const [completed, setCompleted] = useState(0);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
       const progress = () => {
@@ -27,7 +28,8 @@ const App = () => {
       };
     }, []);
 
-    const onClick = useCallback(() => set(state => (state + 1) % 2), []);
+    // const onClick = useCallback(() => set(state => (state + 1) % 2), []);
+    const onClick = () => setOpen(!open);
     const transitions = useTransition(index, p => p, {
       from: { opacity: 0, transform: 'translate3d(0,-100%,0)' },
       enter: { opacity: 1, transform: 'translate3d(0,0%, 0)' },
@@ -46,12 +48,20 @@ const App = () => {
     // )
     
     return (
-          <div className="simple-trans-main">
-              { transitions.map(({ item, props, key }) => {
-                  const Page = pages[item];
-                  return <Page key={key} style={props} onClick={onClick}/>
-              })}
-            </div>
+          // <div className="simple-trans-main">
+          //     { transitions.map(({ item, props, key }) => {
+          //         const Page = pages[item];
+          //         return <Page key={key} style={props} onClick={onClick}/>
+          //     })}
+          //   </div>
+          <>
+          {!open
+            ? <Home onClick={onClick} open={open}/>
+            : <Body onClick={onClick} open={open}/>
+          }
+          
+          
+          </>
     )
 }
 
