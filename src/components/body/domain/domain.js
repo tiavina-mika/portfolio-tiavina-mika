@@ -1,51 +1,60 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CircleGroup from "./circle-group";
-import Circle from "./circle";
 
 const useStyles = makeStyles({
-  container: {
-    backgroundColor: '#000'
-  },
-
-  shadow: {
-    fill: 'none',
-    stroke: '#fff',
-    strokeWidth: '0.1px'
-  },
-  circle3: {
-    fill: 'red',
-    stroke: '#40A9F3',
-    strokeWidth: '0.1px'
-  },
-  text: {
-    fill: '#fff',
-    fontSize: 8
-  },
-  circleBg: {
-    fill: 'none',
-    stroke: '#606060',
-    strokeDasharray: 1,
-    strokeWidth: 0.2
-  },
+    container: {
+      backgroundColor: '#000'
+    },
+    shadow: {
+      fill: 'none',
+      stroke: '#fff',
+      strokeWidth: '0.1px'
+    },
+    circle3: {
+      fill: 'red',
+      stroke: '#40A9F3',
+      strokeWidth: '0.1px'
+    },
+    text: {
+      fill: '#fff',
+      fontSize: 8
+    },
+    circleBg: {
+      fill: 'none',
+      stroke: '#606060',
+      strokeDasharray: 1,
+      strokeWidth: 0.2
+    },
+    lines: {
+      stroke: '#404040', 
+      strokeWidth:"0.4"
+    },
+    animatedLines: {
+      stroke: '#31BCB1',
+      strokeWidth:"0.4"
+    },
 })
 
-const valuesCyV = "122; 124; 127; 124; 122"
+const valuesCyV = [122, 124, 127, 124, 122];
 
 const Domain = () => {
   const classes = useStyles();
-  const [zoom, setZoom] = React.useState(0)
+  const [line, setLine] = React.useState({x1: 100, x2: 100, y1: 0, y2: 80})
   const onWheel = e => {
     const { pageX, pageY, deltaY } = e;
+    const { x1, x2, y2 } = line;
 
-    deltaY > 0 ? setZoom(zoom + 1): setZoom(zoom - 1)
-    console.log(zoom * 10)
+    // deltaY > 0 ? setLineY(lineY + 10): setLineY(lineY - 10);
+    deltaY > 0 ? setLine({x1: x1 + 10, x2: x2 + 50, y2: y2+50}): setLine({x1: x1 - 10, x2: x2 - 50, y2: y2 - 50});
   }
 
   return (
     <div onWheel={onWheel}>
+    {/* <div onWheel={onWheel}> */}
       <svg viewBox="0 0 300 300" className={classes.container}>
-          <line x1="20" x2="20" y1="0" y2="300" style={{stroke: '#404040', strokeWidth:"0.4"}}/>
+          <line x1="20" x2="20" y1="0" y2="300" className={classes.lines}/>
+          {/* <line x1={line.x1} x2={line.x2} y1={line.y1} y2={line.y2} className={classes.lines}/> */}
           {/* <g>
             <circle r="100" cx="150" cy="150" className={classes.circle1}/>
             <circle r={zoom? 80 + (zoom * 10): 80 - (zoom * 10)} cx="150" cy="150" className={classes.circle2}/>
@@ -55,10 +64,10 @@ const Domain = () => {
 
           <g>
               <CircleGroup
-                  valuesCy="80; 82; 85; 82; 80"
+                  valuesCy={[80, 82, 85, 82, 80]}
                   cx="115"
-                  durR="4s"
-                  durCyOut="4.5s"
+                  durR="4"
+                  durCyOut="4.5"
                   name="top"
                   text="Design -"
                   cy="70"
@@ -67,7 +76,7 @@ const Domain = () => {
           <g>
               <CircleGroup
                   valuesCy={valuesCyV}
-                  durR="3.5s"
+                  durR="3.5"
                   cx="72"
                   name="left"
                   text="Web -"
@@ -77,7 +86,7 @@ const Domain = () => {
           <g>
               <CircleGroup
                   valuesCy={valuesCyV}
-                  durR="3.7s"
+                  durR="3.7"
                   cx="152"
                   name="right"
                   text="Mobile -"
@@ -86,17 +95,17 @@ const Domain = () => {
           </g>
           <g>
               <CircleGroup
-                  valuesCy="168; 170; 173; 170; 168"
+                  valuesCy={[168, 170, 173, 170, 168]}
                   cx="115"
-                  durR="4.2s"
-                  durCyOut="4.8s"
+                  durR="4.2"
+                  durCyOut="4.8"
                   name="bottom"
                   text="Base de données -"
                   cy="160"
               />  
           </g>
   
-          <line x1="80" x2="80" y1="0" y2="300" style={{stroke: '#404040', strokeWidth:"0.4"}}/>
+          <line x1="80" x2="80" y1="0" y2="300" className={classes.lines}/>
       </svg>
     </div>
   );

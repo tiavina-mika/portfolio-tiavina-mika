@@ -1,52 +1,29 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 import Circle from "./circle";
 
-const useStyles = makeStyles({
-    group: {
-        backgroundColor: 'green'
-    }
-})
-
-const CircleGroup = ({text,cy,cx, valuesROut, valuesCy, valuesRIn, durR, durCyOut, durCyIn}) => {
-    const classes = useStyles();
-    const [hover, setHover] = useState(false);
-    const onMouseOver = () => {
-        setHover(!hover)
-    }
-    // const onMouseOut = () => {
-    //     setHover(false)
-    // }
-  
+const CircleGroup = ({ text,cy,cx, valuesROut, valuesCy, valuesRIn, durR, durCyOut, durCyIn }) => {
     return (
-        <svg
-        onMouseOver={onMouseOver} 
-        // onMouseOut={onMouseOut} 
-        className={classes.group}
-        >
-
+        <svg>
             <g>
                 <Circle
                     out
                     cx={cx}
-                    valuesR={valuesROut || "28; 33; 28"}
-                    durR={durR || "3s"}
+                    valuesR={valuesROut || [28, 33, 28]}
+                    durR={durR || "3"}
                     valuesCy={valuesCy}
-                    durCy={durCyOut || "4.1s"}
+                    durCy={durCyOut || "4.1"}
                 />
                 <Circle
-                    valuesR={valuesRIn || "22; 27; 22"}
+                    valuesR={valuesRIn || [22, 27, 22]}
                     cx={cx}
                     cy={cy}
-                    durR={durR || "3s"}
+                    durR={durR || "3"}
                     valuesCy={valuesCy}
                     durCy={durCyIn || "4"}
                     text={text}
-                    hover={hover}
                 />
             </g>
         </svg>
- 
     );
 }
 

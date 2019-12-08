@@ -56,7 +56,7 @@ const useStyles = makeStyles({
 const Button = ({onClick, open}) => {
     const classes = useStyles();
     return (
-        <Box position="absolute" width="100%" top="30%">
+        <Box position="absolute" width="100%" top="30%" zIndex={2000}>
             <motion.div
                 onClick={onClick}
                 initial={{marginTop: 0}}
