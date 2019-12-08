@@ -14,6 +14,7 @@ WebFont.load({
         'BebasNeueRegular:300,400,700', 
         'SofiaPro:300,400,700', 
         'Muli:300,400,700', 
+        'QuestaGrandeRegular:300,400,700',
         'sans-serif']
     }
 });
