@@ -1,80 +1,119 @@
-import React, { useState, useEffect } from "react";
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { useSpring, animated } from "react-spring";
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from "react";
+import clsx from "clsx";
+import { makeStyles, darken } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
+import Buttons from "./loading/buttons";
+import Gradients from "./loading/gradients";
+import Image from "./loading/image";
+import AnimatedCircles from "./loading/animated-circles";
 
 const useStyles = makeStyles({
-    circle: {
-        fill: 'none',
-        strokeWidth: 2.8,
-        stroke: 'mediumseagreen',
+    circleIn: {
+      fill: "url(#gradientIn)",
+      strokeWidth: 10
     },
-    circleBg:  {
-        fill: 'none',
-        stroke: 'rgba(0, 0, 0, 0.1)',
-        strokeWidth: '3.8',
+    circleInStart: {
+      stroke: "#ff3f3f",
     },
-    percentage: {
-        textAnchor: 'middle',
-        fontFamily: 'Muli',
-        fontSize: 8
+    circleInEnd: {
+      stroke: "#4dd300",
     },
-    loadingText: {
+    circleOutAnimatedOffset: {
+      fill: 'none',
+    },
+    circleInBorder: {
+      fill: "none",
+      stroke: "black",
+      strokeWidth: 2
+    },
+    circleInBorderActive: {
+      animation: '$setBorderCircle 2s linear infinite forwards',
+    },
+    circleInBorderCompleted: {
+      stroke: darken('#4dd300', 1),
+    },
+    count: {
+      fill: '#777777',
+      fontSize: 15,
+      fontWeight: 700,
+      fontFamily: 'Arial'
+    },
+    icon: {
+      color: '#fff',
+      fontSize: 25
+    },
+    buttonActive: {
+      fill: '#fff'
+    },
+    '@keyframes setBorderCircle': {
+      '100%': {
+        stroke: darken('#fff', 0.6)
+    },
+  },
+});
 
-    }
-})
-
-const circlePath = `M18 2.0845
-a 15.9155 15.9155 0 0 1 0 31.831
-a 15.9155 15.9155 0 0 1 0 -31.831`;
-
-const Wheel = ({ title, stroke, otherStroke }) => {
+const Loading = ({ countUp, pauseResume, start, paused }) => {
     const classes = useStyles();
+
     return (
-        <Box display="flex" flexDirection="column" alignItems="center">
-          <Box>
-              <svg viewBox="0 0 36 36" className="wheel" width="100">
-                  <path className={classes.circleBg} d={circlePath} />
-                  <animated.path
-                      className={classes.circle}
-                      strokeDasharray={otherStroke}
-                      d={circlePath}
-                  />
-                  <animated.text x="18" y="20.35" className={classes.percentage}>
-                      {stroke}
-                  </animated.text>
-              </svg>
-          </Box>
-          <Box>
-              <Typography variant="subtitle1" className={classes.loadingText}>{title}</Typography>
-          </Box>
-      </Box>
-    )
-}
-
-const Loading = ({completed}) => {
-    const [active, set] = useState(false);
-
-    useEffect(() => {
-      completed !== 100 && set(true)
-    }, [completed])
-
-  const props3 = useSpring({
-    stroke: active ? 100 : 0,
-    otherStroke: active ? "100, 100" : "0,100"
-  });
-
-  return (
-    <Box display="flex" justifyContent="center" height="100vh" alignItems="center">
-      <Wheel
-        title="Loading..."
-        stroke={props3.stroke.interpolate(x => Math.round(x))}
-        otherStroke={props3.otherStroke}
-        completed={completed}
-      />
+        <Box
+            bgcolor="#000" 
+            height="100vh" 
+            display="flex"
+            justifyContent="center" 
+            alignItems="center" 
+            flexDirection="column"
+        >
+            <svg width="300" height="300" viewBox="0, 0, 300, 300">
+                <Gradients />
+                <g>
+                    { countUp < 100
+                        ? <AnimatedCircles countUp={countUp} />
+                        : <circle cx={150} cy={150} r={130}
+                            className={clsx(
+                                classes.circleOut,
+                                countUp < 100 ? classes.circleOutActive: classes.circleOutCompleted
+                            )}
+                        /> 
+                    } 
+                    <circle cx={150}  cy={150} r={106}
+                        className={clsx(
+                            classes.circleInBorder, 
+                            countUp < 100? classes.circleInBorderActive: classes.circleInBorderCompleted
+                        )} 
+                    />
+                    <circle cx={150} cy={150} r={100}
+                        className={clsx(
+                            classes.circleIn, 
+                            countUp < 100 ? classes.circleInStart: classes.circleInEnd
+                        )}
+                    />
+                    { countUp < 100
+                        ?   <Image pauseResume={pauseResume} paused={paused} />
+                        :   <g transform="translate(125, 125)">
+                                <path fill="#fff" d="M40.6 12.1L17 35.7 7.4 26.1 4.6 29 17 41.3 43.4 14.9z"/>
+                            </g>
+                    }
+                    <text 
+                        x={155}
+                        y={200}
+                        className={classes.count}
+                        strokeWidth="2px"
+                        textAnchor="middle"
+                        alignmentBaseline="middle">
+                        {countUp}%
+                    </text>
+                    <circle cx={150} cy={150} r={95}
+                        className={clsx(
+                            classes.circleInBorder, 
+                            countUp < 100? classes.circleInBorderActive: ''
+                        )} 
+                    />
+                </g>
+            </svg>
+        <Buttons onPause={pauseResume} paused={paused} start={start}/>
     </Box>
   );
-}
+};
 
 export default Loading;
