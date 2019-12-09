@@ -7,8 +7,8 @@ import Domain from '../components/body/domain-container';
 const Body = ({ onClick, open }) => {
     return (
       <Box display={open ? 'block': 'none'}>
-          <Header onClick={onClick} open={open}/>
-          <About open={open}/>
+          {/* <Header onClick={onClick} open={open}/>
+          <About open={open}/> */}
           <Domain />
           {/* <Doing /> */}
       </Box>

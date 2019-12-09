@@ -1,7 +1,7 @@
 import React from "react";
 import Circle from "./circle";
 
-const CircleGroup = ({ text,cy,cx, valuesROut, valuesCy, valuesRIn, durR, durCyOut, durCyIn }) => {
+const CircleGroup = ({ text, description, cy, cx, valuesROut, valuesCy, valuesRIn, durR, durCyOut, durCyIn }) => {
     return (
         <svg>
             <g>
@@ -21,6 +21,7 @@ const CircleGroup = ({ text,cy,cx, valuesROut, valuesCy, valuesRIn, durR, durCyO
                     valuesCy={valuesCy}
                     durCy={durCyIn || "4"}
                     text={text}
+                    description={description}
                 />
             </g>
         </svg>

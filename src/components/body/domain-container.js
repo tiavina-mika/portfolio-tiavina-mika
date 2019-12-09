@@ -1,5 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import Domain from "./domain/domain";
 import Motion from '../motion';
 
@@ -24,6 +26,13 @@ const DomainContainer = () => {
             delay= {3}
         >
             <Domain />
+            {/* <Box position="absolute" right={100} top={200} bgcolor="red" maxWidth={500}>
+                <Typography>
+                Aus Lorepsum ipsum lores aus Lorepsum ipsum lores aus Lorepsum ipsum lores aus Lorepsum ipsum lores aus Lorepsum ipsum lores aus Lorepsum 
+                ipsum lores ausLorepsum ipsum lores aus Lorepsum ipsum lores aus Lorepsum ipsum lores aus Lorepsum ipsum lores aus Lorepsum ipsum lores aus 
+                Lorepsum ipsum lores aus
+                </Typography>
+            </Box> */}
         </Motion>
   );
 }

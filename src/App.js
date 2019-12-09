@@ -27,13 +27,13 @@ const App = () => {
 
     return (
         <>
-            { completed
+            {/* { completed
                 ?   !open
                         ? <Home onClick={onClick} open={open}/>
                         : <Body onClick={onClick} open={open}/>
                 :   <Loading countUp={countUp} pauseResume={pauseResume} start={start} paused={paused}/>
-            }
-            {/* <Body onClick={onClick} open={true}/> */}
+            } */}
+            <Body onClick={onClick} open={true}/>
         </>
     )
 }

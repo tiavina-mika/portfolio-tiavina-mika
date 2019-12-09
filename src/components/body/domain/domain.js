@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CircleGroup from "./circle-group";
+import Text from "./text";
 
 const useStyles = makeStyles({
     container: {
@@ -52,8 +53,8 @@ const Domain = () => {
   return (
     <div onWheel={onWheel}>
     {/* <div onWheel={onWheel}> */}
-      <svg viewBox="0 0 300 300" className={classes.container}>
-          <line x1="20" x2="20" y1="0" y2="300" className={classes.lines}/>
+      <svg viewBox="0 0 300 225" className={classes.container}>
+          <line x1="20" x2="20" y1="0" y2="225" className={classes.lines}/>
           {/* <line x1={line.x1} x2={line.x2} y1={line.y1} y2={line.y2} className={classes.lines}/> */}
           {/* <g>
             <circle r="100" cx="150" cy="150" className={classes.circle1}/>
@@ -71,6 +72,7 @@ const Domain = () => {
                   name="top"
                   text="Design -"
                   cy="70"
+                  description="Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie"
               />  
           </g>
           <g>
@@ -81,6 +83,7 @@ const Domain = () => {
                   name="left"
                   text="Web -"
                   cy="110"
+                  description="Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie"
               />
           </g>
           <g>
@@ -91,6 +94,7 @@ const Domain = () => {
                   name="right"
                   text="Mobile -"
                   cy="110"
+                  description="Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie"
               />
           </g>
           <g>
@@ -102,10 +106,13 @@ const Domain = () => {
                   name="bottom"
                   text="Base de données -"
                   cy="160"
+                  description="Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie"
               />  
           </g>
   
-          <line x1="80" x2="80" y1="0" y2="300" className={classes.lines}/>
+          <line x1="80" x2="80" y1="0" y2="225" className={classes.lines}/>
+          <Text x="210" y="70"/>
+
       </svg>
     </div>
   );
