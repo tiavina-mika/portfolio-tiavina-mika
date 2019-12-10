@@ -73,9 +73,9 @@ const Circle = ({cx, cy, valuesR, durR, valuesCy, durCy, out, text, description}
                 }
                 animate={animate}
                 transition={duration}
-                whileTap={!out && onClick}
-                onMouseEnter={!out && onHover}
-                onMouseOut={!out && onHoverOut}
+                whileTap={!out ? onClick: undefined}
+                onMouseEnter={!out ? onHover: undefined}
+                onMouseOut={!out ? onHoverOut: undefined}
             />
             { !out && <text x={cx} y={isClicked ? cy / 1.1: cy} textAnchor="middle" className={classes.text}>{text}</text>}
             
