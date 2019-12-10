@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     description: {
         fill: '#fff',
         fontSize: 3,
-        // fontWeight: 700,
         fontFamily: 'Muli',
     },   
     circleInClicked: {
@@ -39,9 +38,7 @@ const useStyles = makeStyles({
     circleOutHovered: {
         fill: 'red',
         stroke: 'none',
-        // strokeWidth: 5,
-    },   
-    
+    },
 })
 
 const Circle = ({cx, cy, valuesR, durR, valuesCy, durCy, out, text, description}) => {

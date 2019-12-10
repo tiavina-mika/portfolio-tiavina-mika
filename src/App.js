@@ -1,14 +1,13 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import { useTransition, animated } from 'react-spring'
+import React, { useState } from 'react'
 import Body from './containers/body';
 import Home from './containers/home';
 import Loading from './components/home/loading';
 import { useCountUp } from 'react-countup';
 
-const pages = [
+// const pages = [
   // ({ style, onClick }) => <animated.div style={{ ...style, }}> <Home onClick={onClick}/></animated.div>,
   // ({ style, onClick }) => <animated.div style={{ ...style, }}> <Main2  onClick={onClick}/></animated.div>,
-];
+// ];
 
 const App = () => {
     const [open, setOpen] = useState(false);
@@ -27,13 +26,13 @@ const App = () => {
 
     return (
         <>
-            {/* { completed
+            { completed
                 ?   !open
                         ? <Home onClick={onClick} open={open}/>
                         : <Body onClick={onClick} open={open}/>
                 :   <Loading countUp={countUp} pauseResume={pauseResume} start={start} paused={paused}/>
-            } */}
-            <Body onClick={onClick} open={true}/>
+            }
+            {/* <Body onClick={onClick} open={true}/> */}
         </>
     )
 }

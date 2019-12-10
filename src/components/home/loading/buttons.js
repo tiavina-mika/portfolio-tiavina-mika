@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, darken } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 
@@ -16,14 +16,17 @@ const useStyles = makeStyles({
   }
 });
 
-const Buttons = ({ onPause, pause, start }) => {
+const Buttons = ({ onPause, pause, start, countUp }) => {
   const classes = useStyles();
 
   return (
       <Box display="flex" mt={2}>
-        <Button className={classes.button} onClick={onPause}>
-          { pause ? 'Continue': 'Pause'}
-        </Button>
+        { countUp < 100
+          && <Button className={classes.button} onClick={onPause}>
+                { pause ? 'Continue': 'Pause'}
+            </Button>
+        }
+
         <Button className={classes.button} onClick={start}>Restart</Button>
       </Box>
   );

@@ -1,26 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Text from '../components/home/content';
 import Stars from '../components/home/stars';
 import Button from '../components/home/button';
 
-const useStyles = makeStyles({
-    container: {
-        // backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor:' #24292e',
-        backgroundImage: `linear-gradient(#191c20, #24292e 15%)`,
-        backgroundPosition: 'left top',
-        height: '100vh',
-        overflow: 'hidden'
-    },
-});
-
-
 const Home = ({ onClick, open }) => {
-    const classes = useStyles();
 
     return (
         // <div className={classes.container} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })} style={{display: open ? 'none': 'block'}}>

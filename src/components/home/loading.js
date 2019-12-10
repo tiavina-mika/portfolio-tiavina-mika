@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { makeStyles, darken } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
@@ -111,7 +111,7 @@ const Loading = ({ countUp, pauseResume, start, paused }) => {
                     />
                 </g>
             </svg>
-        <Buttons onPause={pauseResume} paused={paused} start={start}/>
+        <Buttons onPause={pauseResume} paused={paused} start={start} countUp={countUp}/>
     </Box>
   );
 };
