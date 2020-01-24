@@ -30,7 +30,7 @@ const DomainContainer = () => {
             delay= {3}
         >
             <Domain />
-            <PieChart />
+            {/* <PieChart /> */}
         </Motion>
   );
 }
