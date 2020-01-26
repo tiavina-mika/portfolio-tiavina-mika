@@ -1,7 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import ArrowButtonAltIcon from '@material-ui/icons/ArrowRightAlt';
+import { useHistory, useParams } from 'react-router-dom';
 
 const useStyles = makeStyles({
     title: {
@@ -39,14 +41,17 @@ const useStyles = makeStyles({
     }
 });
 
-const ButtonLink = ({ url, text, onClick }) => {
+const ButtonLink = ({ item, text }) => {
     const classes = useStyles();
+    const history = useHistory();
+
+    const handleClick = () => history.push(`/redirect/${item}`)
 
     return (
-        <a download className={classes.downloadLink} onClick={onClick}>
+        <Box className={classes.downloadLink} onClick={handleClick}>
             <Typography>{text || 'View Project'}</Typography>
             <ArrowButtonAltIcon className={classes.rightIcon}/>
-        </a>
+        </Box>
     )
 }
   

@@ -3,23 +3,30 @@ import Box from '@material-ui/core/Box';
 import { darken } from '@material-ui/core/styles';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { useCountUp } from 'react-countup';
+import { useHistory, useParams } from 'react-router-dom';
 
 const Transition = () => {
     const [completed, setCompleted] = useState(false);
     const [started, setStarted] = useState(false);
-    
+    const history = useHistory();
+    const params = useParams();
+
     const onEnd1 = () => {
         setCompleted(false);
         setStarted(true);
     };
+
+    const onEnd2 = () => {
+        if (params.item === 'poesia') history.push('/project/poesia');      
+    }
   
     const { countUp: countUp1 } = useCountUp({ end: 50, duration: 3, delay: 2, onEnd: onEnd1  });
-    const { countUp: countUp2 } = useCountUp({ end: 100, duration: 3, delay: 5});
+    const { countUp: countUp2 } = useCountUp({ end: 100, duration: 3, delay: 5, onEnd: onEnd2 });
 
     const handleCompleted = () => setCompleted(true);
 
     return (
-        <Box >
+        <Box>
             <ScrollAnimation animateIn='fadeInDown' animateOut='fadeOutDown' afterAnimatedIn={handleCompleted}>
                 <Box bgcolor="#000" height="calc(50vh - 1px)"></Box>
             </ScrollAnimation>

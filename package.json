@@ -15,6 +15,7 @@
     "react-blob": "^1.0.1",
     "react-countup": "^4.2.3",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.1",
     "react-sky": "^1.1.0",
     "react-spring": "^8.0.27",

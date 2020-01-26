@@ -12,7 +12,7 @@ const Experiences = () => {
 
     const handleOpen = () => setOpen(!open);
 
-    if (open) return  <Transition />;
+    // if (open) return  <Transition />;
     return (
         <Box display="flex" flexDirection="column" alignItems="center">
                 <Box py={3}>
@@ -22,7 +22,8 @@ const Experiences = () => {
                     <img src={`${process.env.PUBLIC_URL}/images/experience.png`} alt="header" style={{width: '100%'}}/>
                 </Box>
                 <Box width="80%" mt={8}>
-                    <Experience src={`${process.env.PUBLIC_URL}/images/web-01.png`} technos={poesia} url="/" onClick={handleOpen}>
+                    <Experience src={`${process.env.PUBLIC_URL}/images/web-01.png`} technos={poesia} item="poesia">
+                    {/* <Experience src={`${process.env.PUBLIC_URL}/images/web-01.png`} technos={poesia} url="/" onClick={handleOpen}> */}
                         { experiences.map(experience => <List {...experience}/>) }
                     </Experience>    
                 </Box>

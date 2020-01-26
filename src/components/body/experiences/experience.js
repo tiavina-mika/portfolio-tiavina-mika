@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     } 
 }));
 
-const Experience = ({ src, children, technos, onClick }) => {
+const Experience = ({ src, children, technos, item }) => {
     const classes = useStyles();
 
     return (
@@ -31,7 +31,7 @@ const Experience = ({ src, children, technos, onClick }) => {
                     </Box>
                     <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' delay={700}>
                         <Box display="flex" justifyContent="center" py={3} mt={8}>
-                            <ButtonLink onClick={onClick} />
+                            <ButtonLink item={item} />
                         </Box>
                     </ScrollAnimation>
                 </ScrollAnimation>
