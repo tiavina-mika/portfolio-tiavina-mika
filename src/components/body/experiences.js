@@ -5,9 +5,14 @@ import Experience from './experiences/experience';
 import List from './experiences/list';
 import { poesia } from '../../data/technos';
 import { experiences } from '../../utils/data';
+import Transition from './experiences/transition';
 
 const Experiences = () => {
+    const [open, setOpen] = React.useState(false);
 
+    const handleOpen = () => setOpen(!open);
+
+    if (open) return  <Transition />;
     return (
         <Box display="flex" flexDirection="column" alignItems="center">
                 <Box py={3}>
@@ -17,9 +22,9 @@ const Experiences = () => {
                     <img src={`${process.env.PUBLIC_URL}/images/experience.png`} alt="header" style={{width: '100%'}}/>
                 </Box>
                 <Box width="80%" mt={8}>
-                    <Experience src={`${process.env.PUBLIC_URL}/images/web-01.jpg`} technos={poesia}>
+                    <Experience src={`${process.env.PUBLIC_URL}/images/web-01.png`} technos={poesia} url="/" onClick={handleOpen}>
                         { experiences.map(experience => <List {...experience}/>) }
-                    </Experience>
+                    </Experience>    
                 </Box>
         </Box>
     );

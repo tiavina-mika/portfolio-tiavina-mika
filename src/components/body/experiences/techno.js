@@ -8,9 +8,10 @@ const useStyles = makeStyles({
     root: {
         transition: 'all linear 200ms',
         cursor: 'pointer',
+        boxShadow: `1px 3px 9px transparent`,
+
         '&:hover': {
             boxShadow: `1px 3px 9px ${grey[500]}`,
-            marginTop: -5,
         }
     },
     text: {

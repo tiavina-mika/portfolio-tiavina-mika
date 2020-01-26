@@ -22,7 +22,7 @@ const InProgress = ({ openSource }) => {
     const classes = useStyles();
 
     return (
-            <Box bgcolor={openSource? lighten('#8782FF', 0.8): "#E3F8FF"} borderRadius={20} px={2} py={0.8} mx={5}>
+            <Box bgcolor={openSource? lighten('#8782FF', 0.8): "#E3F8FF"} borderRadius={20} px={3} py={0.8} mx={5}>
                 <Typography className={clsx(openSource? classes.openSource: classes.colored, classes.text)}>
                     { openSource? 'Open Source': 'En Cours' }
                 </Typography>

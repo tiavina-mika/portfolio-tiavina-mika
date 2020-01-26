@@ -6,6 +6,7 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkIcon from '@material-ui/icons/Link';
 import { makeStyles } from "@material-ui/core/styles";
+import { grey } from "@material-ui/core/colors";
 import Title from './title';
 import Content from './content';
 import Tags from './tags';
@@ -30,14 +31,18 @@ const useStyles = makeStyles({
     }
 });
 
-const List = ({ title, subtitle, date, description, genre, repo, web, mobile}) => {
+const List = ({ title, subtitle, post, date, description, genre, repo, web, mobile}) => {
     const classes = useStyles();
 
     return (
-        <Box pt={5}>
+        <Box>
             <Box display="flex" alignItems="center">
                 <Title text={title} size={72} />
                 <InProgress />
+            </Box>
+            <Box height={10} width={100} bgcolor={grey[300]} borderRadius={10}></Box>
+            <Box display="flex" alignItems="center" my={2}>
+                <Title text={post} size={32} subtitle />
             </Box>
             <Box display="flex" alignItems="center">
                 <Title text={subtitle} size={38} subtitle />

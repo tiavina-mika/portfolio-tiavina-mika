@@ -22,12 +22,8 @@ const useStyles = makeStyles({
         overflow: 'hidden',
     },
     root: {
-        // backgroundColor: 'blue',
-            // position: 'fixed',
-            overflow: 'hidden',
-            // width: '30%',
-            // height: '100%',
-            cursor: `url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, auto`,
+        overflow: 'hidden',
+        cursor: `url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, auto`,
         '& div': {
             position: 'absolute',
             width: '25vw',
@@ -71,7 +67,6 @@ const Card = () => {
       if (index !== i) return 
       const isGone = gone.has(index)
       const x = isGone ? (window.innerWidth - 500) * dir : down ? xDelta : 0 
-    //   const x = isGone ? (200 + window.innerWidth) * dir : down ? xDelta : 0 
       const rot = xDelta / 100 + (isGone ? dir * 10 * velocity : 0) 
       const scale = down ? 1.1 : 1 
       return { x, rot, scale, delay: undefined, config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 } }
@@ -81,8 +76,9 @@ const Card = () => {
 
   useEffect(() => {
     document.getElementsByTagName('html')[0].classList.remove(classes.body);
-    return document.getElementsByTagName('html')[0].classList.remove(classes.body)
+    return document.getElementsByTagName('html')[0].classList.remove(classes.body);
   }, [classes.body])
+
   useEffect(() => {
     document.body.classList.add(classes.body);
     return document.body.classList.remove(classes.body)

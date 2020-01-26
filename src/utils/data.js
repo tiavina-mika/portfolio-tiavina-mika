@@ -13,6 +13,7 @@ export const experiences = [
         genre: "Littérature",
         web: true,
         mobile: true,
-        repo: 'https://www.facebook.com'
+        repo: 'https://www.facebook.com',
+        post: 'Full Stack Javascript Developer'
     }
 ];
