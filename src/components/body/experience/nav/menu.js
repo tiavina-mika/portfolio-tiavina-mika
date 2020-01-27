@@ -14,7 +14,14 @@ const useStyles = makeStyles({
         bottom: 0,
         width: '300px',
         background: '#fff',
-      }
+    },
+    nav: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        width: '300px',
+    }
 });
 
 const sidebar = {
@@ -49,6 +56,7 @@ const Menu = () => {
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
+      className={classes.nav}
     >
       <motion.div className={classes.background} variants={sidebar} />
       <Navigation />
