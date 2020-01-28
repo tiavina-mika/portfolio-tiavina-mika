@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         top: 0,
         left: 0,
         bottom: 0,
-        width: '300px',
+        width: '100%',
         background: '#fff',
     },
     nav: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
         top: 0,
         left: 0,
         bottom: 0,
-        width: '300px',
+        width: '100%',
     }
 });
 
