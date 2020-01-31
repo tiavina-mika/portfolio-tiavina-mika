@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
 const Container = ({ title }) => {
     const classes = useStyles();
-        const [scrolled, setScrolled] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const header = document.getElementById("myHeader");
@@ -33,7 +33,6 @@ const Container = ({ title }) => {
           window.removeEventListener("scroll", scrollCallBack);
         };
       }, []);
-
 
     return (
         <Box width="100%">
