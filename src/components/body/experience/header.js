@@ -42,12 +42,12 @@ const Header = () => {
                 <Box className={classes.container} borderRadius={25} display="flex" flexDirection="column" alignItems="center" width="50%" px={8} pt={20} pb={5}>
                     <Box>
                         <Typography variant="h1" className={classes.title}>
-                            One of the oldest industries had to fuse with one of the newest
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                         </Typography>                       
                     </Box>
                     <Box py={3}>
                         <Typography className={classes.text}>
-                        One of the oldest industries had to fuse with one of the newest when Valeyo (formerly CRI Canada) wanted to rebrand. Being a software company that provides digital solutions to insurance companies meant that striking that balance was critical. So we needed to get the imagery right. We couldn’t position the company as too technologically forward as we wouldn’t resonate with more traditional clients, but visual touches like parallax scrolling helped create a progressive look.
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam
                         </Typography>                        
                     </Box>
                 </Box>            

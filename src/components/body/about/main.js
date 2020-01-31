@@ -38,7 +38,7 @@ const Main = ({ width }) => {
                 </Box>
             )
         }
-        return <Card />
+        return <Card />;
     }
     return (
         <div className={classes.root}>
