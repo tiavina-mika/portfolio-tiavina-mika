@@ -28,22 +28,22 @@ const useStyles = makeStyles({
 const Header = ({onClick}) => {
     const classes = useStyles();
     return (
-      // <div className={classes.root}>
-        <motion.div
-            className={classes.root}
-            initial={{marginTop: 500}}
-            animate={{marginTop: 0 }}
-            transition={{
-                type: "spring",
-                stiffness: 260,
-                damping: 20,
-                delay: 0.2
-            }}
-        >
+      <div className={classes.root}>
+        {/* // <motion.div
+        //     className={classes.root}
+        //     initial={{marginTop: 500}}
+        //     animate={{marginTop: 0 }}
+        //     transition={{
+        //         type: "spring",
+        //         stiffness: 260,
+        //         damping: 20,
+        //         delay: 0.2
+        //     }}
+        // > */}
         <Button className={classes.link} onClick={onClick}>Accueil</Button>
         <AnchorLink href='#things' className={classes.link}>A propos</AnchorLink>
         <AnchorLink href='#stuff'className={classes.link}>Stuff</AnchorLink>
-      </motion.div>
+      </div>
     )
   }
   

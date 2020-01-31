@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -65,18 +66,18 @@ const Right = () => {
 
     return (
         <div className={classes.root}>
-            <ScrollAnimation animateIn='fadeInUp' delay={500}>
+            <Box>
                 <Typography variant="h1" className={classes.title}>Tiavina Michael Ralainirina</Typography>
-            </ScrollAnimation>
-            <ScrollAnimation animateIn='fadeInUp' delay={600}>
+            </Box>
+            <Box>
                 <Typography variant="h3" className={classes.subtitle}>Developpeur basé à Madagascar</Typography>
-            </ScrollAnimation>
-            <ScrollAnimation animateIn='fadeInUp' delay={700}>
+            </Box>
+            <Box>
                 <Typography variant="paragraph" className={classes.description}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   
                 </Typography>
-            </ScrollAnimation>
-            <ScrollAnimation animateIn='fadeInUp' delay={800} className={classes.downloadLinkContainer}>
+            </Box>
+            <ScrollAnimation animateIn='fadeInUp' delay={650} className={classes.downloadLinkContainer}>
                 <a href={`${process.env.PUBLIC_URL}/cv-tiavina-michael.pdf`} download className={classes.downloadLink}><Typography>telecharger mon CV </Typography><ArrowRightAltIcon className={classes.rightIcon}/></a>
             </ScrollAnimation>
         </div>

@@ -79,9 +79,7 @@ const List = ({ title, subtitle, post, date, description, genre, repositories, w
                             </Box>
                         </Box>                       
                     ))}
-
                 </Content>
-                
             </Box>
         </Box>
     );

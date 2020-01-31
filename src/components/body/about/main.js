@@ -42,10 +42,10 @@ const Main = ({ width }) => {
     }
     return (
         <div className={classes.root}>
-            <ScrollAnimation animateIn='fadeInLeft' animateOut='fadeOutLeft' delay={500} className={classes.container}>
+            <ScrollAnimation animateIn='slideInLeft' animateOut='slideOutLeft' delay={500} className={classes.container}>
                 { card() }
             </ScrollAnimation>
-            <ScrollAnimation animateIn='fadeInRight' animateOut='fadeOutRight' delay={500} className={classes.container}>
+            <ScrollAnimation animateIn='slideInRight' animateOut='slideOutRight' delay={500} className={classes.container}>
                 <Right />
             </ScrollAnimation>
         </div>

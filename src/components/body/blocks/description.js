@@ -23,9 +23,13 @@ const useStyles = makeStyles(theme => ({
 const Description = ({text}) => {
     const classes = useStyles();
     return (
-        <ScrollAnimation animateIn='fadeInDown' animateOut='fadeOutTop' delay={300} className={classes.root}>
+        <ScrollAnimation animateIn='slideInDown' delay={300} className={classes.root}>
             <Typography variant="subtitle2" className={classes.title}>{text}</Typography>
         </ScrollAnimation>
+    //     <Box className={classes.root}>
+    //        <Typography variant="subtitle2" className={classes.title}>{text}</Typography>
+    //    </Box>
+       
     )
 }
   

@@ -14,12 +14,19 @@ const useStyles = makeStyles({
     },
 })
 
-const BlockTitle = ({text, id}) => {
+const BlockTitle = ({ text, id, animated }) => {
     const classes = useStyles();
+    if (animated) {
+        return (
+            <ScrollAnimation animateIn='fadeInDown' animateOut='fadeOutDown' delay={200}>
+                <Typography className={classes.h1} id={id}>{text}</Typography>
+            </ScrollAnimation>
+        )
+    }
     return (
-        <ScrollAnimation animateIn='fadeInDown' animateOut='fadeOutDown' delay={200}>
+        <div>
             <Typography className={classes.h1} id={id}>{text}</Typography>
-        </ScrollAnimation>
+        </div>
     );
 }
   
