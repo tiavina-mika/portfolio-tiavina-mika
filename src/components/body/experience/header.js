@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     }
 });
 
-const Header = () => {
+const Header = ({ id }) => {
     const classes = useStyles();
 
     return (
@@ -38,7 +38,7 @@ const Header = () => {
             <Box display="flex" justifyContent="center" alignItems="center" pt={3}> 
                 <img src={`${process.env.PUBLIC_URL}/images/web-01.png`} alt="img" className={classes.img}/>
             </Box>
-            <Box display="flex" justifyContent="center" mt={-15} id="myHeader">
+            <Box display="flex" justifyContent="center" mt={-15} id={id}>
                 <Box className={classes.container} borderRadius={25} display="flex" flexDirection="column" alignItems="center" width="50%" px={8} pt={20} pb={5}>
                     <Box>
                         <Typography variant="h1" className={classes.title}>

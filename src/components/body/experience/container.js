@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,9 +17,9 @@ const useStyles = makeStyles({
 
 const Container = ({ title }) => {
     const classes = useStyles();
-        const [scrolled, setScrolled] = React.useState(false);
+        const [scrolled, setScrolled] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const header = document.getElementById("myHeader");
         const scrolled = header.offsetTop;
         const scrollCallBack = window.addEventListener("scroll", () => {
@@ -48,7 +48,7 @@ const Container = ({ title }) => {
                 <Typography variant="h1" className={classes.title}>{ title }</Typography>
             </Box>
             <Box>
-                <Header />
+                <Header id="myHeader" />
             </Box>
         </Box>
     );
