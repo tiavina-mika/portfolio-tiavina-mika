@@ -29,7 +29,7 @@ const Experience = ({ src, children, technos, item }) => {
                             <Techno src={techno.src} alt={techno.alt} text={techno.text} url={techno.url} />
                         ))}
                     </Box>
-                    <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' delay={700}>
+                    <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' delay={650}>
                         <Box display="flex" justifyContent="center" py={3} mt={8}>
                             <ButtonLink item={item} />
                         </Box>

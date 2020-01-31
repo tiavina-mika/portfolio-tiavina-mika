@@ -24,13 +24,13 @@ const Path = props => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
+    stroke={props.dark? '#fff': "hsl(0, 0%, 18%)"}
     strokeLinecap="round"
     {...props}
   />
 );
 
-const MenuToggle = ({ toggle }) => {
+const MenuToggle = ({ toggle, dark }) => {
     const classes = useStyles();
     
     return (
@@ -41,6 +41,7 @@ const MenuToggle = ({ toggle }) => {
                         closed: { d: "M 2 2.5 L 20 2.5" },
                         open: { d: "M 3 16.5 L 17 2.5" }
                     }}
+                    dark={dark}
                 />
                 <Path
                     d="M 2 9.423 L 20 9.423"
@@ -48,6 +49,7 @@ const MenuToggle = ({ toggle }) => {
                         closed: { opacity: 1 },
                         open: { opacity: 0 }
                     }}
+                    dark={dark}
                     transition={{ duration: 0.1 }}
                 />
                 <Path
@@ -55,6 +57,7 @@ const MenuToggle = ({ toggle }) => {
                         closed: { d: "M 2 16.346 L 20 16.346" },
                         open: { d: "M 3 2.5 L 17 16.346" }
                     }}
+                    dark={dark}
                 />
             </svg>
         </button>

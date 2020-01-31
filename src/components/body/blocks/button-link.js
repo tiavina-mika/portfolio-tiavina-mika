@@ -22,6 +22,7 @@ const useStyles = makeStyles({
         borderRadius: 0,
         letterSpacing: '2px',
         fontSize: 14,
+        cursor: 'pointer',
         fontFamily: ['Montserrat','Helvetica','Arial','Lucida','sans-serif'].join(','),
         fontWeight: 700,
         textTransform: 'uppercase',

@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import DescriptionIcon from '@material-ui/icons/Description';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import GitlabIcon from 'mdi-react/GitlabIcon';
 import LinkIcon from '@material-ui/icons/Link';
 import { makeStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
@@ -31,8 +32,17 @@ const useStyles = makeStyles({
     }
 });
 
-const List = ({ title, subtitle, post, date, description, genre, repo, web, mobile}) => {
+const List = ({ title, subtitle, post, date, description, genre, repositories, web, mobile}) => {
     const classes = useStyles();
+
+    const getIcon = name => {
+        switch(name) {
+            case 'gilab':
+                return <GitlabIcon />;
+            default:
+                return <GitHubIcon />;
+        }
+    }
 
     return (
         <Box>
@@ -59,14 +69,17 @@ const List = ({ title, subtitle, post, date, description, genre, repo, web, mobi
                     <Typography className={classes.text}>{description}</Typography>
                 </Content>
                 <Content text="Liens" icon={<LinkIcon className={classes.icon}/>}>
-                    <Box display="flex" alignItems="center">
-                        <Box mr={2}>
-                            <GitHubIcon />
-                        </Box>
-                        <Box>
-                            <a href={repo} className={clsx(classes.link, classes.text)}>{repo}</a>
-                        </Box>
-                    </Box>
+                    { repositories.map((repository, i) => (
+                        <Box display="flex" alignItems="center" key={i}>
+                            <Box mr={2}>
+                                { getIcon(repository)}
+                            </Box>
+                            <Box>
+                                <a href={repository.url} className={clsx(classes.link, classes.text)}>{repository.url}</a>
+                            </Box>
+                        </Box>                       
+                    ))}
+
                 </Content>
                 
             </Box>

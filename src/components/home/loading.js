@@ -26,6 +26,9 @@ const useStyles = makeStyles({
       stroke: "black",
       strokeWidth: 2
     },
+    circleOutCompleted: {
+      fill: 'url(#gradientOutCompleted)',
+    },
     circleInBorderActive: {
       animation: '$setBorderCircle 2s linear infinite forwards',
     },

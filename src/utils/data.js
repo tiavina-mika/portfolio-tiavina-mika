@@ -13,7 +13,7 @@ export const experiences = [
         genre: "Littérature",
         web: true,
         mobile: true,
-        repo: 'https://www.facebook.com',
+        repositories: [{ name: 'gitlab', url: 'https://gitlab.com/tiavina-mika/poesia-app'}],
         post: 'Full Stack Javascript Developer'
     }
 ];

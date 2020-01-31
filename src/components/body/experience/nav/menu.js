@@ -13,13 +13,13 @@ const useStyles = makeStyles({
         left: 0,
         bottom: 0,
         width: '100%',
-        background: '#fff',
+        // background: '#fff',
     },
     nav: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
+        // position: 'fixed',
+        // top: 0,
+        // left: 0,
+        // bottom: 0,
         width: '100%',
     }
 });
@@ -44,7 +44,7 @@ const sidebar = {
   }
 };
 
-const Menu = () => {
+const Menu = ({ dark }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
@@ -58,9 +58,9 @@ const Menu = () => {
       ref={containerRef}
       className={classes.nav}
     >
-      <motion.div className={classes.background} variants={sidebar} />
-      <Navigation />
-      <MenuToggle toggle={() => toggleOpen()} />
+      <motion.div className={classes.background} style={{background: dark? '#1d252d': '#fff'}} variants={sidebar} />
+      <Navigation open={isOpen} dark={dark} />
+      <MenuToggle toggle={() => toggleOpen()} dark={dark} />
     </motion.nav>
   );
 };

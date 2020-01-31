@@ -28,7 +28,7 @@ const Transition = () => {
     return (
         <Box>
             <ScrollAnimation animateIn='fadeInDown' animateOut='fadeOutDown' afterAnimatedIn={handleCompleted}>
-                <Box bgcolor="#000" height="calc(50vh - 1px)"></Box>
+                <Box bgcolor="#000" height={completed || started ? "calc(50vh - 1px)": "50vh"}></Box>
             </ScrollAnimation>
 
             { completed
@@ -45,11 +45,10 @@ const Transition = () => {
                         </Box>
                     </Box>
                 : null
-
             }
             
             <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp'>
-                <Box bgcolor="#000" height="calc(50vh - 1px)"></Box>
+                <Box bgcolor="#000" height={completed || started ? "calc(50vh - 1px)": "50vh"}></Box>
             </ScrollAnimation>
         </Box>
     );

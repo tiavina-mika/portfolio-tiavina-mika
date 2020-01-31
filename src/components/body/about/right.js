@@ -2,18 +2,31 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import Motion from '../../motion';
+import ScrollAnimation from 'react-animate-on-scroll';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
+    root: {
+        [theme.breakpoints.down('lg')]: {
+           marginTop: 75,
+           marginBottom: 75,
+        }
+    },
     title: {
-        fontSize: 30,
+        fontSize: 40,
+        marginTop: 8,
+        marginBottom: 8,
     },
     subtitle: {
+        fontSize: 50,
+        marginTop: 15,
+        marginBottom: 25,
     },
     description: {
-        lineHeight: '30px',
+        lineHeight: '40px',
         fontWeight: 300,
-        fontSize: 18
+        fontSize: 22,
+        marginTop: 15,
+        marginBottom: 15,
     },
     buttonContainer: {
         marginTop: 30
@@ -40,53 +53,33 @@ const useStyles = makeStyles({
             backgroundIage: 'initial',
             backgroundColor: '#333333'
         }
+    },
+    downloadLinkContainer: {
+        marginTop: 60,
+        marginBottom: 15,
     }
-});
+}));
 
 const Right = () => {
     const classes = useStyles();
 
     return (
-          <div className={classes.root}>
-            <Motion
-                initial={{ marginLeft: -6200 }}
-                animate={{ marginLeft: 0 }}
-                delay= {1.8}
-                marginBottom= {10}
-            >
+        <div className={classes.root}>
+            <ScrollAnimation animateIn='fadeInUp' delay={500}>
                 <Typography variant="h1" className={classes.title}>Tiavina Michael Ralainirina</Typography>
-            </Motion>
-            <Motion
-                initial={{ marginLeft: -6400 }}
-                animate={{ marginLeft: 0 }}
-                delay= {2.2}
-                fontSize= {30}
-                marginBottom= {10}
-            >
+            </ScrollAnimation>
+            <ScrollAnimation animateIn='fadeInUp' delay={600}>
                 <Typography variant="h3" className={classes.subtitle}>Developpeur basé à Madagascar</Typography>
-            </Motion>
-
-            <Motion
-                initial={{ marginLeft: -9000 }}
-                animate={{ marginLeft: 0 }}
-                delay= {2.4}
-                dumping={0}
-                marginTop= {10}
-                textAlign="justify"
-            >
-            <Typography variant="paragraph" className={classes.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   
-            </Typography>
-        </Motion>
-        <Motion
-                initial={{ marginLeft: -6800 }}
-                animate={{ marginLeft: 0 }}
-                delay= {2.8}
-                className={classes.buttonContainer}
-            >
-            <a href={`${process.env.PUBLIC_URL}/cv-tiavina-michael.pdf`} download className={classes.downloadLink}><Typography>telecharger mon CV </Typography><ArrowRightAltIcon className={classes.rightIcon}/></a>
-        </Motion>
-          </div>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn='fadeInUp' delay={700}>
+                <Typography variant="paragraph" className={classes.description}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   
+                </Typography>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn='fadeInUp' delay={800} className={classes.downloadLinkContainer}>
+                <a href={`${process.env.PUBLIC_URL}/cv-tiavina-michael.pdf`} download className={classes.downloadLink}><Typography>telecharger mon CV </Typography><ArrowRightAltIcon className={classes.rightIcon}/></a>
+            </ScrollAnimation>
+        </div>
     )
 }
   

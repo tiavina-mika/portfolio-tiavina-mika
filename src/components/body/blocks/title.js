@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Motion from '../../motion';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const useStyles = makeStyles({
     h1: {
@@ -17,13 +17,9 @@ const useStyles = makeStyles({
 const BlockTitle = ({text, id}) => {
     const classes = useStyles();
     return (
-        <Motion
-            initial={{ marginLeft: -3000 }}
-            animate={{ marginLeft: 0 }}
-            delay= {1}
-        >
+        <ScrollAnimation animateIn='fadeInDown' animateOut='fadeOutDown' delay={200}>
             <Typography className={classes.h1} id={id}>{text}</Typography>
-        </Motion>
+        </ScrollAnimation>
     );
 }
   

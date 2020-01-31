@@ -18,7 +18,15 @@ const useStyles = makeStyles({
         lineHeight: '1.7em'
     },
     img: {
-        zIndex: 100
+        zIndex: 2
+    },
+    stickyNav: {
+        position:"sticky",
+        flexGrow:1,
+        top:0,
+        display:"flex",
+        flexDirection:"column",
+        justifyContent:"center"
     }
 });
 
@@ -30,7 +38,7 @@ const Header = () => {
             <Box display="flex" justifyContent="center" alignItems="center" pt={3}> 
                 <img src={`${process.env.PUBLIC_URL}/images/web-01.png`} alt="img" className={classes.img}/>
             </Box>
-            <Box display="flex" justifyContent="center" mt={-15}>
+            <Box display="flex" justifyContent="center" mt={-15} id="myHeader">
                 <Box className={classes.container} borderRadius={25} display="flex" flexDirection="column" alignItems="center" width="50%" px={8} pt={20} pb={5}>
                     <Box>
                         <Typography variant="h1" className={classes.title}>
@@ -44,7 +52,6 @@ const Header = () => {
                     </Box>
                 </Box>            
             </Box>
-
         </Box>
     );
 }
