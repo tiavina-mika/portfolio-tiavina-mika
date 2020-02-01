@@ -13,7 +13,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import BitbucketIcon from 'mdi-react/BitbucketIcon'
 import SkypeIcon from 'mdi-react/SkypeIcon'
 import GitlabIcon from 'mdi-react/GitlabIcon'
-// import HomeIcon from "@material-ui/icons/Home";
+import DatabaseIcon from 'mdi-react/DatabaseIcon'
 
 
 import MenuItem from "./menu-item";
@@ -55,8 +55,8 @@ const Navigation = ({ open, dark }) => {
     const items = [
       { 
         data: [
-            {text: 'Home',url: '/',icon: <HomeIcon />},
-            {text: 'Home 2',url: '/',icon: <HomeIcon />},     
+            {text: 'Accueil',url: '/',icon: <HomeIcon />},
+            {text: 'Expériences',url: '/expériences',icon: <DatabaseIcon />},     
         ],
         title: 'A propos'
       },

@@ -1,15 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Domain from "./domain/domain";
-import PieChart from "./domain/pie-chart";
+// import PieChart from "./domain/pie-chart";
 import Motion from '../motion';
 
 const useStyles = makeStyles({
     root: {
         backgroundColor: '#000',
         width: '100%',
-        // height: '100vh',
-        // marginTop: 200
     },
     title: {
         fontSize: 50,

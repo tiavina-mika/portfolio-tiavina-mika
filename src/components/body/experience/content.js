@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     }
 });
 
-const Header = ({ id }) => {
+const Content = ({ id }) => {
     const classes = useStyles();
 
     return (
@@ -59,4 +59,4 @@ const Header = ({ id }) => {
     );
 }
 
-export default Header;
+export default Content;

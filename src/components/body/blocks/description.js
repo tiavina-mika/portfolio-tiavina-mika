@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import ScrollAnimation from 'react-animate-on-scroll';
+import Box from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,12 +23,9 @@ const useStyles = makeStyles(theme => ({
 const Description = ({text}) => {
     const classes = useStyles();
     return (
-        <ScrollAnimation animateIn='slideInDown' delay={300} className={classes.root}>
-            <Typography variant="subtitle2" className={classes.title}>{text}</Typography>
-        </ScrollAnimation>
-    //     <Box className={classes.root}>
-    //        <Typography variant="subtitle2" className={classes.title}>{text}</Typography>
-    //    </Box>
+        <Box className={classes.root}>
+           <Typography variant="subtitle2" className={classes.title}>{text}</Typography>
+       </Box>
        
     )
 }

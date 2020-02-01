@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from "@material-ui/core/styles";
 import Menu from "../nav/menu";
 import Logo from "../nav/logo";
-import Header from './content';
 
 const useStyles = makeStyles({
     title: {
@@ -15,42 +14,23 @@ const useStyles = makeStyles({
     }
 });
 
-const Container = ({ title }) => {
+const NavBar = ({ title }) => {
     const classes = useStyles();
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const header = document.getElementById("myHeader");
-        const scrolled = header.offsetTop;
-        const scrollCallBack = window.addEventListener("scroll", () => {
-          if (window.pageYOffset > scrolled) {
-            setScrolled(true);
-          } else {
-            setScrolled(false);
-          }
-        });
-        return () => {
-          window.removeEventListener("scroll", scrollCallBack);
-        };
-      }, []);
 
     return (
         <Box width="100%">
             <Box position="fixed" top={0} left={0} bottom={0} width="100%" zIndex={3}>
-                <Menu dark={scrolled} />
+                <Menu />
                 <Box ml={10} mt={2}>
-                    <Logo dark={!scrolled}/>                
+                    <Logo dark={true} />                
                 </Box>
             </Box>
 
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh" bgcolor="#1EB47C"> 
                 <Typography variant="h1" className={classes.title}>{ title }</Typography>
             </Box>
-            <Box>
-                <Header id="myHeader" />
-            </Box>
         </Box>
     );
 }
 
-export default Container;
+export default NavBar;

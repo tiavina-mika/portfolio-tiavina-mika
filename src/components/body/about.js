@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 const About = ({ open }) => {
     const classes = useStyles();
     return (
-      <div className={classes.root}>
+      <div className={classes.root} id="about">
           <Title text="A PROPS DE MOI" id="about" open={open}/>
           <Line />
           <Description text={string}/>

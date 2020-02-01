@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ArrowButtonAltIcon from '@material-ui/icons/ArrowRightAlt';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     title: {

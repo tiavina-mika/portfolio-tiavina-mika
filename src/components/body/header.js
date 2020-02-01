@@ -1,51 +1,114 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import { makeStyles, lighten } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import DatabaseIcon from 'mdi-react/DatabaseIcon';
+import HomeIcon from 'mdi-react/HomeIcon';
+import AccountCardDetailsIcon from 'mdi-react/AccountCardDetailsIcon';
+import Tooltip from '@material-ui/core/Tooltip';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+
+import Logo from './nav/logo';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { motion } from 'framer-motion';
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
-        justifyContent: 'center',
-        border: '1px solid #b2b2b2'
+        alignItems: 'center',
+        position: 'sticky',
+        top: 0,
+        width: '100%',
+        boxShadow: '1px 1px 8px #b2b2b2',
+        backgroundColor: '#fff',
+        zIndex: 250
+    },
+    rootLg: {
+      justifyContent: 'center',
+    },
+    rootXs: {
+      justifyContent: 'space-between',
+    },
+    icon: {
+        color: lighten('#403b41', 0.3),
     },
     link: {
         fontFamily: 'Montserrat',
         textTransform: 'uppercase',
         fontSize: 16,
         color: '#403b41',
-        // backgroundColor: '#F5F5F5',
         fontWeight: 300,
         textDecoration: 'none',
         padding: '20px 40px',
         '&:hover': {
           color: '#db4b51'
         }
+    },
+    button: {
+      '&:hover': {
+        backgroundColor: 'transparent'
+      }
     }
-})
+});
 
-const Header = ({onClick}) => {
+const useStylesBootstrap = makeStyles(theme => ({
+  arrow: {
+    color: theme.palette.common.black,
+  },
+  tooltip: {
+    backgroundColor: theme.palette.common.black,
+  },
+}));
+
+const BootstrapTooltip = props => {
+  const classes = useStylesBootstrap();
+
+  return <Tooltip arrow classes={classes} {...props} />;
+}
+
+const Header = ({ onClick, width }) => {
     const classes = useStyles();
+
+    if (!isWidthUp('md', width)) {
+        return (
+          <div className={clsx(classes.root, classes.rootXs)}>
+              <Box pl={2}>
+                <Logo />
+              </Box>
+              <Box>
+                  <BootstrapTooltip title="Accueil">
+                      <Button className={classes.button}  onClick={onClick}>
+                        <HomeIcon className={classes.icon} size={30} />
+                      </Button>
+                  </BootstrapTooltip>
+                  <AnchorLink href='#experiences'>
+                    <BootstrapTooltip title="Expériences">
+                        <Button className={classes.button}>
+                          <DatabaseIcon className={classes.icon} size={30} />
+                        </Button>
+                    </BootstrapTooltip>                    
+                  </AnchorLink>
+                  <AnchorLink href='#about'>
+                    <BootstrapTooltip title="A Propos">
+                        <Button className={classes.button}>
+                          <AccountCardDetailsIcon className={classes.icon} size={30} />
+                        </Button>
+                    </BootstrapTooltip>
+                  </AnchorLink>               
+              </Box>
+          </div>
+        )
+    }
+
     return (
-      <div className={classes.root}>
-        {/* // <motion.div
-        //     className={classes.root}
-        //     initial={{marginTop: 500}}
-        //     animate={{marginTop: 0 }}
-        //     transition={{
-        //         type: "spring",
-        //         stiffness: 260,
-        //         damping: 20,
-        //         delay: 0.2
-        //     }}
-        // > */}
+      <div className={clsx(classes.root, classes.rootLg)}>
+        <Logo />
         <Button className={classes.link} onClick={onClick}>Accueil</Button>
-        <AnchorLink href='#things' className={classes.link}>A propos</AnchorLink>
-        <AnchorLink href='#stuff'className={classes.link}>Stuff</AnchorLink>
+        <AnchorLink href='#experiences' className={classes.link}>Expériences</AnchorLink>
+        <AnchorLink href='#about'className={classes.link}>A propos</AnchorLink>
       </div>
     )
   }
   
-  export default Header;
+  export default withWidth()(Header);
   
