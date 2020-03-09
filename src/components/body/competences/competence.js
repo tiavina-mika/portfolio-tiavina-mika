@@ -4,7 +4,7 @@ import IphoneProgress from './iphone-progress';
 import LabeledProgress from './labeled-progress';
 import Title from './title';
 
-const Competence = ({ title, data, barType }) => {
+const Competence = ({ title, data, barType, barColor }) => {
     const getIphoneProgress =  item => {
         return <IphoneProgress value={item.value} color={item.color} label={item.item} type={barType === "paper"? "paper": "iphone"}/>
     }
@@ -12,9 +12,9 @@ const Competence = ({ title, data, barType }) => {
         <Box>
             <Title text={title} />
             { data && data.map(d => (
-                d.color
+                barType !== "labeled"
                 ? getIphoneProgress(d)
-                : <LabeledProgress value={d.value} label={d.item}/>
+                : <LabeledProgress value={d.value} label={d.item} color={barColor} />
             ))}
         </Box>
     )

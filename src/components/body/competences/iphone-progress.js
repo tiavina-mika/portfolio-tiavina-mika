@@ -7,7 +7,9 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   iphoneRoot: {
+    // background: 'linear-gradient(to bottom, black, red)',
     backgroundColor: '#E2E7EE',
+    boxShadow: '0 1px 1px #c1c1c1 inset',
     height: 20,
     borderRadius: 7,
   },
@@ -20,6 +22,7 @@ const useStyles = makeStyles({
   },
   iphoneBar: {
     borderRadius: 7,
+    borderBottom: '1px solid #AEADAD'
   },
   paperBar: {
     borderRadius: 10,
@@ -33,6 +36,12 @@ const useStyles = makeStyles({
   iViolet: {
     background: 'linear-gradient(to bottom, #9A89E3, #8C71E5 50%, #8C71E5 75%, #815EE6 100%)',
   },
+  iBlueOcean: {
+    background: 'linear-gradient(to bottom, #0077f8, #0072ed 50%, #006bdd 75%, #0057b5 100%)',
+  },
+  iRed: {
+    background: 'linear-gradient(to bottom, #FF4500, #ea3e00 50%, #ce3700 75%, #a82c00 100%)',
+  },
   paperOrange: {
       backgroundColor: '#FFA500'
   },
@@ -41,6 +50,18 @@ const useStyles = makeStyles({
   },
   paperBlueLight: {
     backgroundColor: '#ADD8E6'
+  },
+  paperViolet: {
+    backgroundColor: '#9b5e94'
+  },
+  paperBlueSky: {
+    backgroundColor: '#26C6B9'
+  },
+  paperYellow: {
+    backgroundColor: '#d1c600'
+  },
+  paperPink: {
+    backgroundColor: '#F8A7D0'
   },
   percent: {
     color: '#9FB1CA',
@@ -70,10 +91,16 @@ const IphoneProgress = ({ value, color, width, label, type }) => {
       if (color === 'blue') colored = classes.iBlue;
       if (color === 'green') colored = classes.iGreen;
       if (color === 'violet') colored = classes.iViolet;
+      if (color === 'blueOcean') colored = classes.iBlueOcean;
+      if (color === 'red') colored = classes.iRed;
     } else if (type === "paper") {
       if (color === 'orange') colored = classes.paperOrange;
       if (color === 'green') colored = classes.paperGreenLight;
       if (color === 'blue') colored = classes.paperBlueLight;
+      if (color === 'violet') colored = classes.paperViolet;
+      if (color === 'blueSky') colored = classes.paperBlueSky;
+      if (color === 'yellow') colored = classes.paperYellow;
+      if (color === 'pink') colored = classes.paperPink;
     }
     return colored;
   }
