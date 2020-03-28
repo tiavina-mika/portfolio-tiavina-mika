@@ -27,8 +27,8 @@ const Body = ({ onClick, open }) => {
           </Box> */}
           {/* <About open={open}/>
           <Domain /> */}
-          {/* <Experiences /> */}
-          <Competences />
+          <Experiences />
+          {/* <Competences /> */}
       </Box>
   );
 }

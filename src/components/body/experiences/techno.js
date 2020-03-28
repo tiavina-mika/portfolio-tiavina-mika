@@ -4,12 +4,21 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         transition: 'all linear 200ms',
         cursor: 'pointer',
+        display:"flex" ,
+        alignItems:"center" ,
+        border:"1px solid #CCCCCC" ,
+        paddingRight: 12, 
+        paddingLeft: 12, 
+        paddingTop: 4, 
+        marginBottom: 10, 
+        justifyContent:"space-between" ,
+        borderRadius:15,
+        marginRight: 10,
         boxShadow: `1px 3px 9px transparent`,
-
         '&:hover': {
             boxShadow: `1px 3px 9px ${grey[500]}`,
         }
@@ -18,12 +27,15 @@ const useStyles = makeStyles({
         fontSize: 20,
         fontFamily: 'Muli',
         fontWeight: 700,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 16
+        },
     },
     link: {
         color: grey[700],
         textDecoration: 'none'
     }
-});
+}));
 
 const Techno = ({ src, alt, text, url }) => {
     const classes = useStyles();
@@ -31,14 +43,6 @@ const Techno = ({ src, alt, text, url }) => {
     return (
         <a href={url} className={classes.link}>
             <Box 
-                display="flex" 
-                alignItems="center" 
-                border={1} 
-                borderColor="#CCCCCC" 
-                pr={2} pl={1.5} pt={0.6} pb={0.2} mb={2} 
-                justifyContent="space-between" 
-                borderRadius={15}
-                mr={2}
                 className={classes.root}
             >
                 <Box mr={0.5}>

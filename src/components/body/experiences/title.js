@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
+import withWidth, { isWidthDown } from '@material-ui/core/withWidth';
 
 const useStyles = makeStyles({
     title: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
     }
 });
 
-const Title = ({ size, text, subtitle, date }) => {
+const Title = ({ size, text, subtitle, date, width }) => {
     const classes = useStyles();
 
     return (
@@ -28,7 +29,7 @@ const Title = ({ size, text, subtitle, date }) => {
                 date? classes.date: ''
             )} 
             style={{
-                fontSize: size || 36,
+                fontSize: size || isWidthDown('sm', width)? 18: 36,
                 fontFamily: subtitle? 'Montserrat': 'Comfortaa'
             }}
         >
@@ -37,4 +38,4 @@ const Title = ({ size, text, subtitle, date }) => {
     );
 }
 
-export default Title;
+export default withWidth()(Title);

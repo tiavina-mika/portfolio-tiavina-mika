@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
+import { makeStyles } from "@material-ui/core/styles";
+
 import Title from './experiences/title';
 import Experience from './experiences/experience';
 import List from './experiences/list';
@@ -8,8 +10,20 @@ import { poesia } from '../../data/technos';
 import { experiences } from '../../utils/data';
 import NavBar from './nav/navbar';
 
+const useStyles = makeStyles(theme => ({
+    root: {
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
+        },
+        [theme.breakpoints.up('sm')]: {
+            width: '80%'
+        },
+        
+    } 
+}));
 const Experiences = () => {
     const location = useLocation();
+    const classes = useStyles();
 
     const nav = () => {
         if (location.pathname.includes('/experiences')) {
@@ -27,8 +41,12 @@ const Experiences = () => {
     return (
         <Box display="flex" flexDirection="column" alignItems="center" id="experiences">
             { nav() }
-            <Box width="80%" mt={location.pathname.includes('/experiences')? 18: 8}>
-                <Experience src={`${process.env.PUBLIC_URL}/images/web-01.png`} technos={poesia} item="poesia">
+            <Box mt={location.pathname.includes('/experiences')? 18: 8} className={classes.root}>
+                <Experience 
+                    src={`${process.env.PUBLIC_URL}/images/web-01.png`} 
+                    technos={poesia} 
+                    item="poesia"
+                >
                     { experiences.map(experience => <List {...experience}/>) }
                 </Experience>    
             </Box>

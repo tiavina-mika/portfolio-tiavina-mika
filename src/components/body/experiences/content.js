@@ -4,11 +4,14 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from "@material-ui/core/styles";
 import { IconButton } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     text: {
         fontSize: 23,
         fontFamily: 'Montserrat',
-        fontWeight: 700
+        fontWeight: 700,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 18
+        },
     },   
     iconButton: {
         backgroundColor: '#F2A600',
@@ -16,7 +19,7 @@ const useStyles = makeStyles({
             backgroundColor: '#F2A600',
         }
     }
-});
+}));
 
 const Content = ({ icon, text, children }) => {
     const classes = useStyles();
